@@ -168,6 +168,11 @@ else()
     message(STATUS "Disabled Component: gsi bias converter")
 endif()
 
+if( "$ENV{GSI_VARBC_IN_DAUTILS}" STREQUAL "YES")
+    set(iodaconv_gsi_varbc_ENABLED False)
+    message(STATUS "Disabled Component: gsi bias converter; it is added from DA_utils")
+endif()
+
 if (NetCDF_Fortran_FOUND )
     set(iodaconv_obserror_ENABLED True)
     message(STATUS "Enabled Component: obserror converter")
